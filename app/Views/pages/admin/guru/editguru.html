@@ -1,0 +1,145 @@
+{% extends 'layout/layout.html' %}
+{% load static %}
+
+{% block content %}
+  
+<script type="text/javascript">
+     $(".sidebar-item").removeClass("active");
+     $("#guru").addClass("active");
+</script>
+<hr>
+
+<form action="/panel/simpanguru" method="post">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-xl-4">
+                <div class="card shadow-sm">
+                    <div class="card-header">
+                        <h4>Photo Guru</h4>
+                    </div>
+                    <div class="card-body"> 
+                        <div class=" mx-auto rounded-circle bg-dark" style="width:150px;height:150px;overflow: hidden;">
+                            <img style="width:100%" class="img-thumbnail img-preview img-fluid " src="{% static "img/user.jpeg" %}" alt="">                       
+                        </div>
+                        <div class="text-center">
+                            <label for="logo" class="form-label logoLabel d-none"></label>
+                            <div class="fileUpload btn btn-success text-center" width="80%;overflow:hidden;">
+                                <span><i class="fas fa-image    "></i> Pilih Photo</span>
+                                <input class="upload mx-auto" type="file" onchange="preview()" id="logo" name="logo">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card shadow-sm">
+                    <div class="card-header">
+                        <h4>Kontak Guru</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for=""><i class="bi bi-whatsapp"></i> HP / WA</label>
+                            <div>
+                                <input type="text"  value="{{guru.hpguru}}"  class="form-control rounded-pill">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for=""><i class="bi bi-envelope-fill"></i> Email</label>
+                            <div>
+                                <input type="text"  value="{{guru.email}}"  class="form-control rounded-pill">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-xl-8">
+                <div class="card shadow-sm">
+                    <div class="card-header">
+
+                        <span class="fs-5 ps-4"><strong>Detail Guru</strong></span>
+
+                        <span class="position-absolute rounded-pill end-0 me-5 d-none d-md-inline">
+
+                            <a href="/panel/guru" class="me-3 ">  <i class="bi bi-arrow-left"></i> Kembali</a>
+
+                            <button type="submit" class="btn  btn-primary btn-sm rounded-pill px-3 py-1"><i class="bi bi-save-fill"></i> Simpan</button>
+                        </span>
+
+                    
+                    </div>
+                    <div class="card-body p-0 p-md-3">
+                        <div class="container">
+                    
+                            <div class="row">
+                                <div class="col-md-4">
+                                    NIP Guru
+                                </div>
+                                <div class="col-md-8">
+                                    <input name="nip" value="{{guru.nipguru}}" type="text" class="form-control rounded-pill">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    Nama Guru
+                                </div>
+                                <div class="col-md-8">
+                                    <input value=" {{guru.namaguru}}"  name="nama" type="text" class="form-control rounded-pill">
+                                   
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-4">
+                                Alamat
+                                </div>
+                                <div class="col-md-8">
+                                    <input name="alamat" value="{{guru.alamatguru}}" type="text" class="form-control rounded-pill">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    Jenis Kelamin
+                                </div>
+                                <div class="col-md-8">
+                                    <select name="jk" class="form-select rounded-pill" aria-label="Default select example">
+                                        <option selected value="{{guru.kelaminguru}}" >{{guru.kelaminguru}}</option>
+                                        <option value="1">Laki Laki</option>
+                                        <option value="0">Perempuan</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    Jenjang Pendidikan
+                                </div>
+                                <div class="col-md-8">
+                                    <input  value="{{guru.jenjang}}"  name="pendidikan" type="text" class="form-control rounded-pill">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    Jurusan
+                                </div>
+                                <div class="col-md-8">
+                                    <input  value="{{guru.jurusan}}"  type="text" class="form-control rounded-pill">
+                                </div>
+                            </div>
+                            <div class="row text-center d-md-none d-flex my-3">
+                                <button type="submit" class="btn btn-success rounded-pill py-2">  Simpan</button>
+
+                                <a class="mt-3" href="/panel/guru">Kembali</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+{% endblock content %}
